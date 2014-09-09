@@ -5,8 +5,11 @@ class ItemsController < ApplicationController
 
 	# items/1 GET
 	def show
-
+		unless @item = Item.where(id: params[:id]).first
+			redirect_to "public/404.html"
+		end
 	end
+
 	# items/new GET
 	def new
 
